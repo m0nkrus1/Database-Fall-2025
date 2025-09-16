@@ -1,0 +1,114 @@
+Entity Data Types
+1. Airport
+
+airport_id (PK, INT)
+airport_name (VARCHAR)
+country (VARCHAR)
+state (VARCHAR)
+city (VARCHAR)
+created_at (TIMESTAMP)
+updated_at (TIMESTAMP)
+
+2. Airline
+
+airline_id (PK, INT)
+airline_code (VARCHAR, UNIQUE)
+name (VARCHAR)
+country (VARCHAR)
+created_at (TIMESTAMP)
+updated_at (TIMESTAMP)
+
+3. Flight
+
+flight_id (PK, INT)
+airline_id (FK, INT)
+departure_airport_id (FK, INT)
+arrival_airport_id (FK, INT)
+departing_gate (VARCHAR)
+arriving_gate (VARCHAR)
+scheduled_departure (TIMESTAMP)
+scheduled_arrival (TIMESTAMP)
+actual_departure (TIMESTAMP)
+actual_arrival (TIMESTAMP)
+created_at (TIMESTAMP)
+updated_at (TIMESTAMP)
+
+4. Passenger
+
+passenger_id (PK, INT)
+first_name (VARCHAR)
+last_name (VARCHAR)
+gender (VARCHAR)
+date_of_birth (DATE)
+country_citizenship (VARCHAR)
+country_residence (VARCHAR)
+passport_number (VARCHAR, UNIQUE)
+created_at (TIMESTAMP)
+updated_at (TIMESTAMP)
+
+5. Booking
+
+booking_id (PK, INT)
+flight_id (FK, INT)
+passenger_id (FK, INT)
+status (VARCHAR)
+booking_platform (VARCHAR)
+ticket_price (DECIMAL(10,2))
+created_at (TIMESTAMP)
+updated_at (TIMESTAMP)
+
+6. Booking_Changes
+
+change_id (PK, INT)
+booking_id (FK, INT)
+change_description (TEXT)
+created_at (TIMESTAMP)
+updated_at (TIMESTAMP)
+
+7. Boarding_Pass
+
+boarding_pass_id (PK, INT)
+booking_id (FK, INT)
+seat (VARCHAR)
+boarding_time (TIMESTAMP)
+created_at (TIMESTAMP)
+updated_at (TIMESTAMP)
+
+8. Baggage
+
+baggage_id (PK, INT)
+booking_id (FK, INT)
+weight_kg (DECIMAL(5,2))
+created_at (TIMESTAMP)
+updated_at (TIMESTAMP)
+
+9. Baggage_Checking
+
+baggage_checking_id (PK, INT)
+baggage_id (FK, INT)
+passenger_id (FK, INT)
+check_results (TEXT)
+created_at (TIMESTAMP)
+updated_at (TIMESTAMP)
+
+10. Security_Check
+
+security_check_id (PK, INT)
+passenger_id (FK, INT)
+check_results (TEXT)
+created_at (TIMESTAMP)
+updated_at (TIMESTAMP)
+
+
+
+Underlined text: Primary Key attribute (Red)
+
+Italic text: Foreign Key attribute (Green)
+
+1:M: One-to-Many relationship
+
+PK: Primary Key - unique identifier for each record
+
+FK: Foreign Key - references primary key in another table
+
+
